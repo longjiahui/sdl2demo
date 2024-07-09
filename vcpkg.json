@@ -1,5 +1,9 @@
 {
-  "dependencies": [
-    "sdl2"
-  ]
+    "dependencies": [
+        { "name": "sdl2", "features": ["vulkan"] },
+        {
+            "name": "imgui",
+            "features": ["sdl2-binding", "vulkan-binding", "opengl3-binding"]
+        }
+    ]
 }

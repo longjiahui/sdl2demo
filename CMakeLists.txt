@@ -16,3 +16,7 @@ target_link_libraries(SDL2demo PRIVATE
   $<TARGET_NAME_IF_EXISTS:SDL2::SDL2main>
   $<IF:$<TARGET_EXISTS:SDL2::SDL2>,SDL2::SDL2,SDL2::SDL2-static>
   )
+target_include_directories(SDL2demo PRIVATE
+  ./include)
+
+target_sources(SDL2demo PRIVATE ./src)

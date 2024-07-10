@@ -56,7 +56,10 @@
         "any": "cpp",
         "charconv": "cpp",
         "fstream": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "memory": "cpp",
+        "span": "cpp",
+        "stack": "cpp"
     },
     "lldb.showDisassembly": "auto",
     "lldb.dereferencePointers": true,

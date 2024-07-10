@@ -15,9 +15,16 @@ public:
   virtual bool loop(std::function<bool(void)>, unsigned short = 16) = 0;
 };
 
-class SDLApplication : public Application {
+class VulkanApplication : public Application {
 public:
-  SDLApplication() : Application() {
+  VulkanApplication() : Application() {}
+  virtual std::shared_ptr<VulkanWindow>
+  createVulkanWindow(const char *title) = 0;
+};
+
+class SDLApplication : public VulkanApplication {
+public:
+  SDLApplication() : VulkanApplication() {
     if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
       throw std::runtime_error("SDL_Init failed");
     }
@@ -26,10 +33,14 @@ public:
   std::shared_ptr<Window> createWindow(const char *title) {
     return std::make_shared<SDLWindow>(title);
   }
+  std::shared_ptr<VulkanWindow> createVulkanWindow(const char *title) {
+    return std::make_shared<SDLWindow>(title);
+  }
 
   bool loop(std::function<bool(void)> loopFunc, unsigned short delay) {
     SDL_Delay(delay);
     return loopFunc();
   }
 };
+
 } // namespace huigame

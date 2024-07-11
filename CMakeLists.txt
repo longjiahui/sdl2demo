@@ -8,7 +8,6 @@ set(CMAKE_CXX_STANDARD 17)
 
 find_package(SDL2 CONFIG REQUIRED)
 find_package(imgui CONFIG REQUIRED)
-
 add_executable(SDL2demo main.cpp)
 
 target_link_libraries(SDL2demo PRIVATE
